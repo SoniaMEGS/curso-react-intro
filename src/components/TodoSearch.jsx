@@ -1,10 +1,18 @@
 import React from "react";
 import "../style/TodoSearch.css";
 
-function TodoSearch() {
+function TodoSearch({ searchValue, setSearchValue }) {
   return (
     <>
-      <input placeholder="Acariciar gatitos" className="TodoSearch" />
+      <input
+        placeholder="Search..."
+        className="TodoSearch"
+        // Al igualar la propiedad value con es el state, se conecta el valor del imput con el valor del estado.
+        value={searchValue}
+        onChange={(event) => {
+          setSearchValue(event.target.value);
+        }}
+      />
     </>
   );
 }

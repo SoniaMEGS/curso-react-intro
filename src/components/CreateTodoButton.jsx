@@ -4,7 +4,12 @@ import "../style/createTodoButton.css";
 function CreateTodoButton() {
   return (
     <div>
-      <button className="createTodoButton">+</button>
+      <button
+        className="createTodoButton"
+        onClick={() => console.log(`Le diste click`)}
+      >
+        +
+      </button>
     </div>
   );
 }
