@@ -1,13 +1,10 @@
 import React from "react";
 import "../style/createTodoButton.css";
 
-function CreateTodoButton() {
+function CreateTodoButton({ addTodos }) {
   return (
     <div>
-      <button
-        className="createTodoButton"
-        onClick={() => console.log(`Le diste click`)}
-      >
+      <button className="createTodoButton" onClick={() => addTodos()}>
         +
       </button>
     </div>
