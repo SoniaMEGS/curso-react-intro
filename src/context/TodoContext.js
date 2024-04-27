@@ -12,7 +12,7 @@ function TodoProvider({ children }) {
     error,
   } = useLocalStorage(`TODOS_V1`, []);
   const [searchValue, setSearchValue] = React.useState(``);
-  const [openModal, setOpenModal] = React.useState(true);
+  const [openModal, setOpenModal] = React.useState(false);
 
   //↓Devuelve la cantidad de tareas marcadas como completadas
   const completedTodos = todos.filter((todo) => todo.completed).length;
@@ -43,14 +43,11 @@ function TodoProvider({ children }) {
   };
 
   //↓Add todos
-  const addTodos = () => {
+  const addTodos = (text) => {
     const newTodos = [...todos];
-    newTodos.push({ text: "Estudiar", completed: false });
+    newTodos.push({ text, completed: false });
     saveTodos(newTodos);
   };
-
-  //↓ Open modal
-  //const openModal = () => {};
 
   return (
     <TodoContext.Provider

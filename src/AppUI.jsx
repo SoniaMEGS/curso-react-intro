@@ -7,6 +7,7 @@ import TodosLoading from "./components/TodosLoading.jsx";
 import TodosError from "./components/TodosError.jsx";
 import EmptyTodos from "./components/EmptyTodos.jsx";
 import Modal from "./components/Modal.jsx";
+import TodoForm from "./components/TodoForm.jsx";
 import { CreateTodoButton } from "./components/CreateTodoButton.jsx";
 import { TodoContext } from "./context/TodoContext.js";
 
@@ -46,7 +47,11 @@ const AppUI = () => {
 
       <CreateTodoButton setOpenModal={setOpenModal} />
 
-      {openModal && <Modal>Agregar TODO</Modal>}
+      {openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
     </React.Fragment>
   );
 };
