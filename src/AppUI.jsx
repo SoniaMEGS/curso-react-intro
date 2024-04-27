@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { TodoCounter } from "./components/TodoCounter.jsx";
 import { TodoSearch } from "./components/TodoSearch.jsx";
 import { TodoList } from "./components/TodoList.jsx";
@@ -6,10 +6,15 @@ import { TodoItem } from "./components/TodoItem.jsx";
 import TodosLoading from "./components/TodosLoading.jsx";
 import TodosError from "./components/TodosError.jsx";
 import EmptyTodos from "./components/EmptyTodos.jsx";
+import Modal from "./components/Modal.jsx";
 import { CreateTodoButton } from "./components/CreateTodoButton.jsx";
 import { TodoContext } from "./context/TodoContext.js";
 
 const AppUI = () => {
+  const { openModal, setOpenModal } = useContext(TodoContext);
+  useEffect(() => {
+    console.log(openModal);
+  }, []);
   return (
     <React.Fragment>
       <TodoCounter />
@@ -39,7 +44,9 @@ const AppUI = () => {
         )}
       </TodoContext.Consumer>
 
-      <CreateTodoButton />
+      <CreateTodoButton setOpenModal={setOpenModal} />
+
+      {openModal && <Modal>Agregar TODO</Modal>}
     </React.Fragment>
   );
 };
