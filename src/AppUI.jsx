@@ -4,6 +4,8 @@ import { TodoSearch } from "./components/TodoSearch.jsx";
 import { TodoList } from "./components/TodoList.jsx";
 import { TodoItem } from "./components/TodoItem.jsx";
 import TodosLoading from "./components/TodosLoading.jsx";
+import CountLoading from "./components/CountLoading.jsx";
+import SearchLoading from "./components/SearchLoading.jsx";
 import TodosError from "./components/TodosError.jsx";
 import EmptyTodos from "./components/EmptyTodos.jsx";
 import Modal from "./components/Modal.jsx";
@@ -12,19 +14,27 @@ import { CreateTodoButton } from "./components/CreateTodoButton.jsx";
 import { TodoContext } from "./context/TodoContext.js";
 
 const AppUI = () => {
-  const { openModal, setOpenModal } = useContext(TodoContext);
-  useEffect(() => {
-    console.log(openModal);
-  }, []);
+  const { openModal, setOpenModal, loading } = useContext(TodoContext);
+
   return (
     <React.Fragment>
-      <TodoCounter />
-      <TodoSearch />
+      {loading ? <CountLoading /> : <TodoCounter />}
+      {loading ? <SearchLoading /> : <TodoSearch />}
       <TodoContext.Consumer>
-        {({ searchedTodos, completeTodos, deleteTodos, loading, error }) => (
+        {({
+          searchedTodos,
+          completeTodos,
+          deleteTodos,
+          loading,
+          error,
+          totalTodos,
+        }) => (
           <TodoList>
             {loading && (
               <>
+                <TodosLoading />
+                <TodosLoading />
+                <TodosLoading />
                 <TodosLoading />
                 <TodosLoading />
                 <TodosLoading />

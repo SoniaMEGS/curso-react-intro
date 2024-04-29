@@ -36,7 +36,11 @@ const TodoForm = () => {
         >
           Cancelar
         </button>
-        <button type="submit" className="TodoForm-button TodoForm-button--add">
+        <button
+          type="submit"
+          disabled={newTodoValue === ""}
+          className="TodoForm-button TodoForm-button--add"
+        >
           Añadir
         </button>
       </div>

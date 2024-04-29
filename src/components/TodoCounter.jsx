@@ -4,8 +4,9 @@ import "../style/todoCounter.css";
 
 function TodoCounter() {
   const { completedTodos, totalTodos } = useContext(TodoContext);
-  //console.log(total, completed);
-  return totalTodos === completedTodos ? (
+  return totalTodos == 0 ? (
+    <h1 className="TodoCounter">Agrega tu primer TODO</h1>
+  ) : totalTodos === completedTodos ? (
     <h1 className="TodoCounter">Has completado todos tus TODOS 🥳</h1>
   ) : (
     <h1 className="TodoCounter">

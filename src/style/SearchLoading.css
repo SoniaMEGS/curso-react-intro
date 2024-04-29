@@ -1,0 +1,38 @@
+.SearchLoading-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.SearchLoading-text {
+  height: 64px;
+  width: calc(100% - 64px);
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.SearchLoading-text {
+  background: linear-gradient(
+    90deg,
+    rgba(250, 250, 250, 0.799),
+    rgba(200, 199, 199, 0.792)
+  );
+  background-size: 400% 400%;
+  animation: loadingAnimation 3s ease-in-out infinite;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
